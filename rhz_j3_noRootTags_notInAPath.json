@@ -1,10 +1,10 @@
 {
     "openapi": "3.0.3",
     "info": {
-      "title": "APIMP JSON3 - Tags in path but not in path",
+      "title": "APIMP JSON3 - Tags in some paths but not in root",
       "description": "This is a sample API specification file based on the OpenAPI 3.0 specification.",
       "contact": {
-        "email": "dan.cazacu@signanthealth.com"
+        "email": "aa.bb@cc.com"
       },
       "version": "1.0.0"
     },
