@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.3",
     "info": {
-      "title": "API Marketplace json OAS3 Demo",
+      "title": "APIMP JSON3 - Tags in path but not in path",
       "description": "This is a sample API specification file based on the OpenAPI 3.0 specification.",
       "contact": {
         "email": "dan.cazacu@signanthealth.com"
