@@ -1,0 +1,201 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+      "title": "API Marketplace json OAS3 Demo",
+      "description": "This is a sample API specification file based on the OpenAPI 3.0 specification.",
+      "contact": {
+        "email": "dan.cazacu@signanthealth.com"
+      },
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "https://dummy-apispec.signanthealth.com"
+      },
+      {
+        "url": "https://second-dummy-apispec.signanthealth.com"
+      }
+    ],
+    "x-SearchTags": [
+      {
+        "name": "Data"
+      },
+      {
+        "name": "DTP"
+      },
+      {
+        "name": "eCOA"
+      },
+      {
+        "name": "eConsent"
+      },
+      {
+        "name": "Exchange"
+      },
+      {
+        "name": "Insights"
+      },
+      {
+        "name": "Monitoring"
+      },
+      {
+        "name": "Participant"
+      },
+      {
+        "name": "Reporting"
+      },
+      {
+        "name": "RTSM"
+      },
+      {
+        "name": "Services"
+      },
+      {
+        "name": "Sites"
+      },
+      {
+        "name": "Sponsors"
+      },
+      {
+        "name": "Telemedicine"
+      },
+      {
+        "name": "Users"
+      }
+    ],
+    "x-Categories": [
+      "Data",
+      "Insights",
+      "Services"
+    ],
+    "paths": {
+      "/random/{type}": {
+        "get": {
+          "tags": [
+            "quality", 
+            "data"
+          ],
+          "summary": "Get random integer",
+          "description": "Returns random integer between max and min specified as query parameters using the specified generator type",
+          "operationId": "random",
+          "parameters": [
+            {
+              "name": "max",
+              "in": "query",
+              "description": "Maximum number for the random interval",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            },
+            {
+              "name": "min",
+              "in": "query",
+              "description": "Minimum number for the random interval",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            },
+            {
+              "in": "path",
+              "name": "type",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "enum": [
+                  "linear",
+                  "combined",
+                  "stream"
+                ]
+              },
+              "description": "Generator type:\n * `linear` - Linear Congruential Method\n * `combined` - Combined Linear Congruential Generator\n * `stream` - Random Number Streams\n"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/random"
+                  }
+                },
+                "application/xml": {
+                  "schema": {
+                    "$ref": "#/components/schemas/random"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Invalid parameters supplied"
+            },
+            "500": {
+              "description": "Internal server error"
+            }
+          }
+        }
+      },
+      "/random": {
+        "get": {
+          "summary": "Get random number",
+          "description": "Returns random integer between 0 and 100 using stream random generator",
+          "operationId": "quickrandom",
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "required": [
+                      "number"
+                    ],
+                    "type": "object",
+                    "properties": {
+                      "number": {
+                        "type": "integer",
+                        "description": "Generated number",
+                        "format": "int64",
+                        "example": 10
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Internal server error"
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "random": {
+          "required": [
+            "number"
+          ],
+          "type": "object",
+          "properties": {
+            "number": {
+              "type": "integer",
+              "description": "Generated number",
+              "format": "int64",
+              "example": 10
+            },
+            "generatorType": {
+              "type": "string",
+              "description": "Generator type used for this randomization",
+              "enum": [
+                "linear",
+                "combined",
+                "stream"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
