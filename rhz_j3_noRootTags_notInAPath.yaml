@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  title: APIMP YAML3 - Tags in some paths but not in root
+  title: APIMP YAML3 - Tags in some paths and no tag description in root
   description: This is a sample API specification file based on the OpenAPI 3.0 specification without tags in root but in path.
   contact:
     email: aa.bb@cc.com
@@ -28,6 +28,10 @@ x-Categories:
 - Data
 - Insights
 - Services
+tags:
+- name: quality
+  description: Quality related product
+- name: data
 paths:
   /random/{type}:
     get:
