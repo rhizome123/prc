@@ -1,13 +1,13 @@
 openapi: 3.0.3
 info:
-  title: APIMP YAML3 - No Root Tags
+  title: APIMP YAML3 - Tags in some paths but not in root
   description: This is a sample API specification file based on the OpenAPI 3.0 specification without tags in root but in path.
   contact:
-    email: dwe@fsef.com
+    email: aa.bb@cc.com
   version: 1.0.0
 servers:
-- url: https://dummy-apispec.ffw.com
-- url: https://second-dummy-apispec.frefe.com
+- url: https://dummy-apispec.dd.com
+- url: https://second-dummy-apispec.ee.com
 x-SearchTags:
 - name: Data
 - name: DTP
